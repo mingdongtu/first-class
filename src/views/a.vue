@@ -1,0 +1,41 @@
+<template>
+  <div>
+    <h1>{{title}}</h1>
+    <div>Hello,我是页面A</div>
+    <div style="color:red">{{msg}}</div>
+    <div @click="onJumpB">我要去见B页面</div>
+    <h3>{{title1}}</h3>
+  </div>
+</template>
+
+<script>
+import { mapState, mapMutations } from "vuex";
+export default {
+  data() {
+    return {
+      msg: this.$route.params.msg,
+      title1: ""
+    };
+  },
+  computed: {
+    ...mapState("a", {
+      title: state => state.title
+    })
+  },
+  methods: {
+    ...mapMutations("a", ["setTitle"]),
+    onJumpB() {
+      this.$router.push({
+        name: "b"
+      });
+    }
+  },
+  mounted() {
+    console.log(this.$store);
+    this.title1 = this.$store.a.state.title;
+  }
+};
+</script>
+
+<style  scoped>
+</style>
