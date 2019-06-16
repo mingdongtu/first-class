@@ -98,9 +98,10 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
 
 
 ## vuex：
-### 如何手动引入；
+### 如何手动引入
    ```js 
-   npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
+   npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，
+   并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
    ```
 ### 如何分模块；
    ```js
