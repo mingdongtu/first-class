@@ -105,7 +105,27 @@ headers  服务端通常是根据请求头（headers）中的 Content-Type 字�
 application/json 这个 Content-Type 作为响应头大家肯定不陌生。实际上，现在越来越多的人把它作为请求头，用来告诉服务端消息主体是序列化后的 JSON 字符串。
 ```
 ### 如何进行请求拦截
-
+请求前：
+   ```js
+  
+   axios.interceptors.request.use(function (config) {
+    // Do something before request is sent 
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+```
+  请求后：
+```js
+axios.interceptors.response.use(function (response) {
+    // Do something with response data
+    return response;
+  }, function (error) {
+    // Do something with response error
+    return Promise.reject(error);
+  });
+   ```
 ### 如何进行vue-axios的二次封装；
 ### 高级用法——执行多个并发请求：
    ```js
