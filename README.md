@@ -31,7 +31,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ## 项目结构：                    
-├─build                         // webpack开发打包相关配置
+- build                         // webpack开发打包相关配置
 │ ├─build.js                        // 构建环境下的配置:loading动画;删除创建目标文件夹;webpack编译;输出信息
 │ ├─check-versions.js               // node和npm的版本检查
 │ ├─logo.png                        
@@ -53,10 +53,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 │ ├─App.vue                         // 根组件
 │ ├─main.js                         // 入口js
 ├─static                        // 纯静态资源（不会变动的资源，如图片、字体），不会被webpack构建，直接被复制到打包目录dist/static
-├─.babelrc                      // 使用babel的配置文件，用来设置转码规则和插件
-├─.editorconfig                 // 代码的规范文件（规定使用空格或tab缩进，缩进的长度等，使用的话需要在编辑器下载对应的插件）
-├─.gitignore                    // 指定 git 忽略的文件，所有 git 操作均不会对其生效；
-├─.postcssrc.js                 // 指定使用的 css 预编译器，里面默认配置了 autoprefixer ，自动补全浏览器前缀
+- .babelrc                      // 使用babel的配置文件，用来设置转码规则和插件
+- .editorconfig                 // 代码的规范文件（规定使用空格或tab缩进，缩进的长度等，使用的话需要在编辑器下载对应的插件）
+- .gitignore                    // 指定 git 忽略的文件，所有 git 操作均不会对其生效；
+- .postcssrc.js                 // 指定使用的 css 预编译器，里面默认配置了 autoprefixer ，自动补全浏览器前缀
 ├─index.html
 ├─package-lock.json            // 确定当前安装的包的依赖，以便后续重新安装的时候生成相同的依赖，而忽略项目开发过程中有些依赖已经发生的更新；
 ├─package.json                 // 项目配置文件
@@ -99,7 +99,8 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
 
 ## vuex：
 ### 如何手动引入；
-   ```js npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
+   ```js 
+   npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
    ```
 ### 如何分模块；
    ```js
@@ -109,11 +110,14 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
 ### 如何对状态进行获取、提交，以及辅助函数的运用
   ```js
   首先在组件内引入mapMutations、mapState、mapActions 等
+
   computed 里面引入mapState,methods里面引入mapMutatons
-  如果不采用辅助函数，this.$store.state.module.status;this.$store.commit('module/methodName',status)
+  如果不采用辅助函数，
+  this.$store.state.module.status;this.$store.commit('module/methodName',status)
  
   actions可以建立一个写入全局的异步请求方法，并且第一个参数是可选的，如果要在请求成功后去提交mutation，那么第一个参数{commit,state};
   mapActions的使用方法和mapMutations基本一致
+  
   mapGetters的使用方法类似mapMutations，第一个参数是可选的命名空间，第二个是一个数组，里面是getters里面的方法名
   ```
 
