@@ -26,6 +26,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - vue-router建立路由；
 - 引入异步请求插件 vue-axios;
 - 引入状态管理插件vuex；
+- 如何使用webpack配置loader、server
+- 如何配置代理;
 - 处理移动适配；
 - 组件注册；
 
@@ -63,10 +65,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 └─README.md                    // 备注文件，对项目开发过程中需要注意的地方进行一些说明
 
 
-2、一般怎么在当前基础上建立一个相对合理的目录结构；
-views下放置各个页面和局部组件
-components下放置项目的公共组件
-router放置各个页面的路由配置路径
+## 一般怎么在当前基础上建立一个相对合理的目录结构；
+### views下放置各个页面和局部组件
+### components下放置项目的公共组件
+### router放置各个页面的路由配置路径
 
 ## 路由：
 ### 路由如何引入
@@ -86,7 +88,26 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
    import axios from 'axios'
    然后挂载在vue的原型或者window对象上，然后就可以进行二次封装。
    ```
- ### 高级用法——执行多个并发请求：
+### 创建axios实例；
+```js
+const instance = axios.create({
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: {
+    "Content-Type": "application/json;charset=UTF-8"
+  },
+});
+分析：
+baseURL  配置后每一个请求前就会自动加上这个地址,这就是服务器所在地址；
+timeout  代表的是最长可持续请求的时间，如果在1000毫秒内请求还没有返回，那么本地就会断开
+         https的🔗
+headers  服务端通常是根据请求头（headers）中的 Content-Type 字段来获知请求中的消息主体是用何种方式编码，再对主体进行解析
+application/json 这个 Content-Type 作为响应头大家肯定不陌生。实际上，现在越来越多的人把它作为请求头，用来告诉服务端消息主体是序列化后的 JSON 字符串。
+```
+### 如何进行请求拦截
+
+### 如何进行vue-axios的二次封装；
+### 高级用法——执行多个并发请求：
    ```js
    function getUserAccount() {
      return axios.get('/user/12345');
@@ -99,10 +120,6 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
     // Both requests are now complete
     }));
    ```
-
-### 如何进行请求拦截；
-### 如何进行vue-axios的二次封装；
-
 
 ## vuex：
 ### 如何手动引入
