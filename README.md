@@ -20,15 +20,14 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## 如何从零开始搭建一个vue项目
-Vue从零开始搭建一个移动端项目
+# 如何从零开始搭建一个vue项目
 
-## 利用vue-cli 2.0搭建一个基本可以运行的项目；
-## vue-router建立路由；
-## 引入异步请求插件 vue-axios;
-## 引入状态管理插件vuex；
-## 处理移动适配；
-## 组件注册；
+- 利用vue-cli 2.0搭建一个基本可以运行的项目；
+- vue-router建立路由；
+- 引入异步请求插件 vue-axios;
+- 引入状态管理插件vuex；
+- 处理移动适配；
+- 组件注册；
 
 
 一、项目结构：
@@ -83,14 +82,14 @@ push方法和replace 方法的区别
 
 
 三、vue-axios :
-1、如何引入；
+- 如何引入；
    |——:最基础的用法就是 import axios from 'axios',然后挂载在vue的原型或者window对象上，然后就可以进行二次封装。
  #高级用法——执行多个并发请求：在多个相互没有依赖关系请求都成功之后执行后再执行某一步操作时使用
    |——:function getUserAccount() {return axios.get('/user/12345');}
    
 
-2、如何进行请求拦截；
-3、如何进行vue-axios的二次封装；
+- 如何进行请求拦截；
+- 如何进行vue-axios的二次封装；
 
 
 四、vuex：
