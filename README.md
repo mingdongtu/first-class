@@ -20,15 +20,15 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-#如何从零开始搭建一个vue项目
+## 如何从零开始搭建一个vue项目
 Vue从零开始搭建一个移动端项目
 
-# 利用vue-cli 2.0搭建一个基本可以运行的项目；
-# vue-router建立路由；
-# 引入异步请求插件 vue-axios;
-# 引入状态管理插件vuex；
-# 处理移动适配；
-# 组件注册；
+## 利用vue-cli 2.0搭建一个基本可以运行的项目；
+## vue-router建立路由；
+## 引入异步请求插件 vue-axios;
+## 引入状态管理插件vuex；
+## 处理移动适配；
+## 组件注册；
 
 
 一、项目结构：
