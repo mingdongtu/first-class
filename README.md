@@ -30,9 +30,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - 组件注册；
 
 
-一、项目结构：
-1、对项目不同文件部分做一个介绍；
-                     
+## 项目结构：                    
 ├─build                         // webpack开发打包相关配置
 │ ├─build.js                        // 构建环境下的配置:loading动画;删除创建目标文件夹;webpack编译;输出信息
 │ ├─check-versions.js               // node和npm的版本检查
@@ -70,42 +68,54 @@ views下放置各个页面和局部组件
 components下放置项目的公共组件
 router放置各个页面的路由配置路径
 
-二、路由：
-- 路由如何 引入；
- Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是一个实例化的vue-router的构造函数中传入一个一个属性为routes，值为数组的对象
+## 路由：
+### 路由如何引入
+Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是一个实例化的vue-router的构造函数中传入一个一个属性为routes，值为数组的对象
 
-- 介绍编程式导航和组件导航，以及参数如何传递；
-push方法两种不同的传参形式
-push方法和replace 方法的区别
+### 介绍编程式导航和组件导航，以及参数如何传递；
+#### push方法两种不同的传参形式
+#### push方法和replace 方法的区别
 
-- 介绍路由守卫的应用场景
-
-
-三、vue-axios :
-- 如何引入；
-   |——:最基础的用法就是 import axios from 'axios',然后挂载在vue的原型或者window对象上，然后就可以进行二次封装。
- #高级用法——执行多个并发请求：在多个相互没有依赖关系请求都成功之后执行后再执行某一步操作时使用
-   |——:function getUserAccount() {return axios.get('/user/12345');}
-   
-
-- 如何进行请求拦截；
-- 如何进行vue-axios的二次封装；
+### 介绍路由守卫的应用场景
 
 
-四、vuex：
-1、如何手动引入；
-   |——:npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
-2、如何分模块；
-   |——:在store下建立存在不通模块的文件夹
-   |——:在每个文件下建立一个.js 的脚本文件，在里面export default{state:{},mutations:{},getters:{},actions:{}} 
-3、如何对状态进行获取、提交，以及辅助函数的运用
-  |——:首先在组件内引入mapMutations、mapState、mapActions 等
-  |——:computed 里面引入mapState,methods里面引入mapMutatons
-  |——:如果不采用辅助函数，this.$store.state.module.status;this.$store.commit('module/methodName',status)
-  |——:action的使用
-     |——:actions可以建立一个写入全局的异步请求方法，并且第一个参数是可选的，如果要在请求成功后去提交mutation，那么第一个参数{commit,state};
-        |——:mapActions的使用方法和mapMutations基本一致
-  |——:mapGetters的使用方法类似mapMutations，第一个参数是可选的命名空间，第二个是一个数组，里面是getters里面的方法名
+## vue-axios :
+### 如何引入；
+   #### 最基础的用法就是 
+   ```js
+   import axios from 'axios'
+   然后挂载在vue的原型或者window对象上，然后就可以进行二次封装。
+   ```
+ ### 高级用法——执行多个并发请求：
+   ```js
+   function getUserAccount() {
+     return axios.get('/user/12345');
+     }
+   ```
+
+### 如何进行请求拦截；
+### 如何进行vue-axios的二次封装；
+
+
+## vuex：
+### 如何手动引入；
+   ```js npm安装，在src目录下建立一个store文件夹，store下有一个统一的index.js来统一引入各个模块，并且通过new Vuex.Store（{moduleA,moduleB}）来进行实例化，然后导出
+   ```
+### 如何分模块；
+   ```js
+   在store下建立存在不通模块的文件夹
+   在每个文件下建立一个.js 的脚本文件，在里面export default{state:{},mutations:{},getters:{},actions:{}} 
+   ```
+### 如何对状态进行获取、提交，以及辅助函数的运用
+  ```js
+  首先在组件内引入mapMutations、mapState、mapActions 等
+  computed 里面引入mapState,methods里面引入mapMutatons
+  如果不采用辅助函数，this.$store.state.module.status;this.$store.commit('module/methodName',status)
+ 
+  actions可以建立一个写入全局的异步请求方法，并且第一个参数是可选的，如果要在请求成功后去提交mutation，那么第一个参数{commit,state};
+  mapActions的使用方法和mapMutations基本一致
+  mapGetters的使用方法类似mapMutations，第一个参数是可选的命名空间，第二个是一个数组，里面是getters里面的方法名
+  ```
 
 
 五、移动适配
