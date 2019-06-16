@@ -80,10 +80,17 @@ push方法两种不同的传参形式
 push方法和replace 方法的区别
 
 3、介绍路由守卫的应用场景
+   |——:最基础的用法就是 import axios from 'axios',然后挂载在vue的原型或者window对象上，然后就可以进行二次封装。
+ #高级用法——执行多个并发请求：在多个相互没有依赖关系请求都成功之后执行后再执行某一步操作时使用
+   |——:function getUserAccount() {return axios.get('/user/12345');}
+   
 
+
+   |——:
 
 三、vue-axios :
 1、如何引入；
+  
 
 2、如何进行请求拦截；
 3、如何进行vue-axios的二次封装；
