@@ -91,6 +91,13 @@ Vue-cli2 构建时会自动引入路由在router文件下，它的核心就是�
    function getUserAccount() {
      return axios.get('/user/12345');
      }
+     function getUserPermissions() {
+     return axios.get('/user/12345/permissions');
+   }
+   axios.all([getUserAccount(), getUserPermissions()])
+   .then(axios.spread(function (acct, perms) {
+    // Both requests are now complete
+    }));
    ```
 
 ### 如何进行请求拦截；
